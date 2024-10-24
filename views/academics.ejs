@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<title>Dash</title>
+</head>
+
+<body>
+
+	<div class="content">
+		<ul class="breadcrumbs">
+			<li> <a href="/"> Dash</a> </li>
+			<li> / </li>
+			<li> Academics </li>
+		</ul>
+		<h1> Academics </h1>
+
+		<section class="dataTable">
+			<table class="data">
+				<tr>
+					<th>Lecturer ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th> Email </th>
+                    <th>Office Location</th>
+					<th>Course</th>
+					<th> Actions </th>
+				</tr>
+				<tr>
+					<% academics.forEach(lecturer=> { %>
+					<tr>
+						<td><%= lecturer.Lec_ID %> </td>
+						<td><%= lecturer.Lec_FName %> </td>
+						<td><%= lecturer.Lec_LName %> </td>
+						<td><%= lecturer.Lec_Email %> </td>
+                        <td><%= lecturer.Office_Location %> </td>
+						<td><%= lecturer.Crs_Title %> </td>
+						
+						<td> <a href="/academics/edit/<%= lecturer.Lec_ID%>"> Edit </a> <a href="/academics/view/<%= lecturer.Lec_ID%>">
+								View </a> </td>
+				</tr>
+						<% })%>
+
+				<tr>
+
+			</table>
+		</section>
+	</div>
+
+</body>
+
+</html>

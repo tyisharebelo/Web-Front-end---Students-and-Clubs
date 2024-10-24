@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Dash</title>
+</head>
+
+<body>
+
+<div class="content">
+    <ul class="breadcrumbs">
+        <li> <a href="/"> Dash</a> </li>
+        <li> / </li>
+        <li> Clubs </li>
+    </ul>
+
+    <form id="hobbiesSearchForm">
+        <label for="hobbiesSearchTerm">Search:</label>
+        <input type="text" id="hobbiesSearchTerm" name="term" placeholder="Search by hobby, student, or club">
+    </form>
+
+    <h1> Club based on your Hobby </h1>
+
+        <section class="dataTable">
+            <table class="data">
+                <tr>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Hobby Code</th>
+                    <th>Hobby Name</th>
+                    <th>Club ID</th>
+                    <th>Club Name</th>
+                    <th>Actions</th>
+                </tr>
+                <% if (hobbies.length > 0) { %>
+                    <% hobbies.forEach(entry => { %>
+                        <tr>
+                            <td><%= entry.URN %> </td>
+                            <td><%= entry.Stu_FName %> </td>
+                            <td><%= entry.Stu_LName %> </td>
+                            <td><%= entry.Hobby_Code %> </td>
+                            <td><%= entry.Hobby_Name %> </td>
+                            <td><%= entry.Club_ID %> </td>
+                            <td><%= entry.Club_Name %> </td>
+                            <td>
+                                <a href="/clubs/edit/<%= entry.URN %>"> Edit </a>
+                                <a href="/clubs/view/<%= entry.URN %>"> View </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="8">No hobbies found</td>
+                    </tr>
+                <% } %>
+            </table>
+        </section>
+    </div>
+<script>
+    document.getElementById('hobbiesSearchTerm').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('.data tbody tr');
+
+        tableRows.forEach((row, index) => {
+            if (index !== 0) {
+                let shouldShowRow = false;
+                row.querySelectorAll('td').forEach(cell => {
+                    const cellText = cell.textContent.toLowerCase();
+                    if (cellText.includes(searchTerm)) {
+                        shouldShowRow = true;
+                    }
+                });
+                row.style.display = shouldShowRow ? 'table-row' : 'none';
+            } else {
+                row.style.display = 'table-row';
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

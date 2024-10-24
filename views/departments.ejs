@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<title>Dash</title>
+</head>
+
+<body>
+
+	<div class="content">
+		<ul class="breadcrumbs">
+			<li> <a href="/"> Dash</a> </li>
+			<li> / </li>
+			<li> Departments </li>
+		</ul>
+		<h1> Departments </h1>
+
+		<section class="dataTable">
+			<table class="data">
+				<tr>
+					<th>Department ID</th>
+					<th>Department Name</th>
+					<th>Department Location</th>
+					<th>Actions</th>
+
+				</tr>
+				<tr>
+					<% departments.forEach(department=> { %>
+					<tr>
+						<td><%= department.Dept_ID %> </td>
+						<td><%= department.Dept_Name %> </td>
+						<td> <%= department.Dept_Location %> </td>
+
+					<td> <a href="/departments/edit/<%= department.Dept_ID%>"> Edit </a> <a href="/departments/view/<%= department.Dept_ID%>">
+							View </a> </td>
+				</tr>
+						<% })%>
+
+				<tr>
+
+			</table>
+		</section>
+	</div>
+
+</body>
+
+</html>

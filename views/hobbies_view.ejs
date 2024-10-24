@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<title>Dash</title>
+</head>
+
+<body>
+
+	<div class="content">
+		<ul class="breadcrumbs">
+			<li> <a href="/"> Dash</a> </li>
+			<li> / </li>
+			<li> <a href="/clubs">Clubs</a> </li>
+			<li> / </li>
+			<li> View </li>
+		</ul>
+		<h1>
+			<h1> <%= hobbyDetails.Stu_FName %> <%= hobbyDetails.Stu_LName %> </h1>
+			<ul>
+				<li> URN: <%= hobbyDetails.URN %> </li>
+				<li> Hobby Code:<%= hobbyDetails.Hobby_Code %> </li>
+				<li> Hobby Name: <%= hobbyDetails.Hobby_Name %> </li>
+				<li> Club ID: <%= hobbyDetails.Club_ID %> </li>
+				<li> Club Name: <%= hobbyDetails.Club_Name %></li>
+			</ul>
+		</h1>
+
+	</div>
+
+</body>
+
+</html>

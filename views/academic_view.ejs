@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<title>Dash</title>
+</head>
+
+<body>
+
+	<div class="content">
+		<ul class="breadcrumbs">
+			<li> <a href="/"> Dash</a> </li>
+			<li> / </li>
+			<li> <a href="/academics">Academics</a> </li>
+			<li> / </li>
+			<li> View </li>
+		</ul>
+		<h1>
+			<h1> <%= lecturer.Lec_FName %> <%= lecturer.Lec_LName %> </h1>
+			<ul>
+				<li> Lecturer ID: <%= lecturer.Lec_ID %> </li>
+                <li> Email: <%= lecturer.Lec_Email %> </li>
+                <li> Office Location: <%= lecturer.Office_Location %> </li>
+				<li> Course: <%= lecturer.Crs_Title %> </li>
+			</ul>
+		</h1>
+
+	</div>
+
+</body>
+
+</html>

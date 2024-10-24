@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<title>Dash</title>
+</head>
+
+<body>
+
+	<div class="content">
+		<ul class="breadcrumbs">
+			<li> <a href="/"> Dash</a> </li>
+			<li> / </li>
+			<li> <a href="/academics">Academics</a> </li>
+			<li> / </li>
+			<li> Update </li>
+		</ul>
+		<h1> Edit <%= lecturer.Lec_FName %> <%= lecturer.Lec_LName %> </h1>
+		<h2> <%= message %> </h2>
+		<h3>
+				<form method="post" class="edit_form">
+					</p>
+					<p> <label for="Lec_Email"> Update Email: </label> <input type="email"
+							value="<%= lecturer.Lec_Email%>" name="Lec_Email" required> </p>
+					<input type="submit" value="Update">
+
+				</form>
+				</h1>
+
+	</div>
+
+</body>
+
+</html>

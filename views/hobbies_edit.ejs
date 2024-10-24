@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Dash</title>
+</head>
+
+<body>
+
+<div class="content">
+    <ul class="breadcrumbs">
+        <li> <a href="/"> Dash</a> </li>
+        <li> / </li>
+        <li> <a href="/clubs">Clubs</a> </li>
+        <li> / </li>
+        <li> Update </li>
+    </ul>
+    <h1> Edit <%= student.Stu_FName %> <%= student.Stu_LName %>'s Hobby </h1>
+    <h2> <%= message %> </h2>
+    <h3>
+        <form method="post" class="edit_form">
+
+            <label for="hobby">Update Hobby: </label>
+            <select class="form-control" name="Hobby_Code" id="hub" required>
+
+                <% hobbies.forEach( hobby =>{ %>
+
+                    <option value="<%= hobby.Hobby_Code %>"
+                            <%= student.Hobby_Code === hobby.Hobby_Code ? 'selected' : '' %>>
+                        <%= hobby.Hobby_Name%> </option>
+
+
+                <%})%>
+            </select>
+                    <br>
+            <br>
+            <input type="submit" value="Update">
+
+
+        </form>
+        </h1>
+        <script>
+            document.getElementById('hobbySelect').addEventListener('change', async function() {
+                const hobbyCode = this.value;
+
+                try {
+                    const response = await fetch(`/clubs/${hobbyCode}/club`, { method: 'GET' });
+                    const club = await response.json();
+                    const tableRow = document.getElementById(`club-${hobbyCode}`);
+                    if (tableRow) {
+                        tableRow.querySelector('.club-name').textContent = club.Club_Name || 'No Club';
+                    }
+                } catch (error) {
+                    console.error('Error fetching club:', error);
+                }
+            });
+            document.getElementById('hobbySelect').dispatchEvent(new Event('change'));
+        </script>
+</div>
+
+</body>
+
+</html>
